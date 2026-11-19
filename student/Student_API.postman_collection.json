@@ -1,0 +1,78 @@
+
+{
+  "info": {
+    "name": "Student Management API",
+    "description": "Spring Boot Student Management REST APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api/students"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Add Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rahul Sharma\",\n  \"scores\": {\n    \"Java\": 90,\n    \"Python\": 85,\n    \"DBMS\": 95\n  },\n  \"skills\": [\"Java\", \"Python\", \"SQL\"]\n}"
+        },
+        "url": "{{baseUrl}}"
+      }
+    },
+    {
+      "name": "2. Get All Students",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}"
+      }
+    },
+    {
+      "name": "3. Get Student By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/1"
+      }
+    },
+    {
+      "name": "4. Update Student Scores and Skills",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"scores\": {\n    \"Java\": 95,\n    \"Python\": 92,\n    \"DBMS\": 98\n  },\n  \"skills\": [\"Java\", \"Python\", \"SQL\", \"Spring Boot\"]\n}"
+        },
+        "url": "{{baseUrl}}/1/performance"
+      }
+    },
+    {
+      "name": "5. Delete Student",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/1"
+      }
+    },
+    {
+      "name": "6. Get Merit List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/merit-list"
+      }
+    }
+  ]
+}
